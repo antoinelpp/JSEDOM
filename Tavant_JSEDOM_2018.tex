@@ -1,5 +1,5 @@
 \documentclass[sans, aspectratio=169]{beamer}
-\usepackage{eulervm}
+%\usepackage{eulervm}
 \usepackage[scaled ]{helvet}
 \usepackage[utf8]{inputenc}
 \usepackage{multimedia}
@@ -58,7 +58,17 @@ On the Hall effect thruster performances}
 	\frametitle{The Hall effect Thrusters} 
 	\framesubtitle{Introduction} 
 	\begin{itemize} 
-		\item Space exploration need ever better thrusters to propel spacecraft behong the limits
+		\item The efficiency of a thruster is linked to the echaust velocity :
+		
+		%\vspace{0.2cm}
+		\renewcommand{\arraystretch}{1.2}% Wider
+		\begin{center}
+			\begin{tabular}{c|c|c}
+				Exhaust velocity & Dry mass & mass at launch to G\\ \hline 
+				$1 km/s$ &   $2.10^3$      &  $5.10^3$  \\
+				$10 km/s$&  $2.10^3$    &  $3.10^3$ 
+			\end{tabular}
+		\end{center}
 		\item Hall Effect Thrusters (HET) is a very promissing technology :
 		\begin{itemize} 
 			\item High exhaust velocity ($\sim 12 km/s$)
@@ -67,15 +77,6 @@ On the Hall effect thruster performances}
 		\end{itemize}
 	\end{itemize}
 	
-	%\vspace{0.2cm}
-	\renewcommand{\arraystretch}{1.2}% Wider
-	\begin{center}
-		\begin{tabular}{c|c|c}
-			Exhaust velocity & Dry mass & mass at launch \\ \hline 
-			$1 km/s$ &   $2 T $     &  $5 T$ \\
-			$10 km/s$&  $ 2 T  $   &  $3 T$
-		\end{tabular}
-	\end{center}
 	
 	%\vspace{0.2cm}
 	However: \textbf{the HET is still poorly understood}
@@ -85,10 +86,10 @@ On the Hall effect thruster performances}
 \begin{frame} 
 \frametitle{What don't we know ?} 
 \framesubtitle{Introduction} 
-Better inderstanding of HET is more and more important. However :
+Better inderstanding of HET is more and more important. Indeed :
 
 \begin{itemize}
-\item Performance (thrust, efficentcy, etc.) isn't predictable yet
+\item Performance (thrust, efficentcy, etc.) isn't predictable:
 	\begin{itemize}
 		\item the wall effect is poorly understood
 		\item the electron mobility is anormaliously high ($\sim 10 \times$)
@@ -97,13 +98,38 @@ Better inderstanding of HET is more and more important. However :
 	\begin{itemize}
 		\item Walls are eroded by ion impact sputtering
 		\item Walls resistes from 1000 h to 7000h
+		
 		\item Anormalous wall erosion are also observed
 	\end{itemize}
 \end{itemize}
 
-\textbf{Why ?} Because plasma physics are \textbf{difficult}
+\textbf{Why ?} \pause Because plasma physics are \textbf{difficult}
 
 \end{frame}
+
+\begin{frame}{plasma physics are \textbf{difficult}} 
+
+	\begin{itemize}
+	\item Measurments and diagnotics are difficults
+		\begin{itemize}
+			\item low densities and high magnetic field: standard diagnotics are not precise enought
+
+			\item high temperature : probs can melt !
+			\item probs will modify the plasma propertis
+		
+		\end{itemize}
+	\end{itemize}
+	\begin{itemize}
+	\item The therory is complexe:
+		\begin{itemize}
+			\item Plasma : fluid equation mixed with Maxwell equations $\rightarrow$ Non-linear
+			\item Many degres of freedom
+		
+		\end{itemize}
+	\end{itemize}
+	$\rightarrow$ Simulation is a big help, specialy Particlar simulations.
+\end{frame}
+
 
 \begin{frame}
 	\frametitle{Plasma Beam Instability} 
@@ -119,7 +145,7 @@ The system is simple:
 		\item a static plasma background
 		\item an electron beam with high velocity $v_b >> v_{th}$
 		\item Collision are neglected (low pressure)
-		\item uniform density
+		\item uniform spatial density
 	\end{itemize}
 \end{column}
 
@@ -151,7 +177,7 @@ The system is simple:
 \end{column}
 
 \begin{column}{0.35\linewidth}
-	\movie[width=5cm,height=4cm,poster,showcontrols=true]{}{images/BeamInstability.mp4}
+	\movie[width=5cm,height=4cm,poster,showcontrols=true,autostart]{}{images/BeamInstability.mp4}
 \end{column}
 
 \end{columns}	
@@ -222,9 +248,11 @@ The system is simple:
 	\framesubtitle{ Investigating the ECDI } 
 
 	\begin{center}
-	The Density evolution in function of time.\\
+	The plasma potential evolution in function of time.\\
 	
 	\movie[width=6.65cm,height=5cm,poster,showcontrols=false]{}{images/plasma_potential_n04.mp4}
+	
+	The instability observed is certainly the Electron cyclotron drift instability !
 	\end{center}
 \end{frame}
 
@@ -232,40 +260,117 @@ The system is simple:
 	\frametitle{Simulation results} 
 	\framesubtitle{ Investigating the ECDI } 
 	
+	
 	\begin{columns}
-	
-		\begin{column}{0.45\linewidth}
-			\begin{figure}[hbtp]
-				\centering
-				\includegraphics[scale=0.24]{images/Etheta_of_t_theta.png}
-				\caption{Evolution of $E_{\theta}$ function of $t$ and $\theta$.}
 
-			\end{figure}
+	\begin{column}{0.45\linewidth}
+	
+		\begin{figure}[hbtp]
+			\centering
+			\includegraphics[scale=0.22]{images/2D_FFT.png} 
+			\caption{Bi-dimentional Fourier Transform of $E_{\theta}$ and the theoritical dispertion relation $\omega(k_{\theta})$ of the ECDI.}
+		\end{figure}
 		
+	\end{column}
+	
+	\begin{column}{0.45\linewidth}
+	$\mu(t)$ plot form Vivien's thesis
+	\end{column}
 
-		\end{column}	
 
+\end{columns}
+
+
+\end{frame}
+
+\begin{frame} 
+\frametitle{Improving Thuster simulation} 
+
+How to improve the simulation of the HET ? \pause
+\begin{itemize}
+	\item Plasma - wall interaction
+	\begin{itemize}
+		\item Electron induced secondery electron emition (SEE) [ Vivien Croes]
+		\item<alert@2> Dielectric layer : modify electrostatique bondary condition
+	\end{itemize}
+	\item Simulating the third direction $O_z$
+	\begin{itemize}
+		\item<alert@2> 2D simulation of the $(O_z, O_{\theta})$ plan [with Thomas Charoy]
+		\item<alert@2> Adding third "fake" direction in the 2D simulation
+	\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame} 
+	\frametitle{Improving Thuster simulation} 
+	\framesubtitle{ Wall effects} 
+		
+	\begin{columns}
+
+		\begin{column}{0.45\linewidth}
+	
+		
+	\begin{block}{Model of Secondary electron emission:}
+	Emission probability : 
+	$$\sigma = \sigma _0 + (1 - \sigma _0)\frac{\epsilon}{\epsilon^*}$$
+	with $\epsilon = \frac{1}{2} m_e v^2$, and $\sigma_0$ and $\epsilon^*$ fonctions of the ceramic  
+	\end{block}
+		
+		\end{column}
+	
 		\begin{column}{0.45\linewidth}
 			\begin{figure}[hbtp]
 				\centering
-				\includegraphics[scale=0.22]{images/2D_FFT.png} 
-				\caption{Fourier Transform of $E_{\theta}$.}
+				\includegraphics[scale=0.3]{images/Te_epsilon.png}
+				\caption{Electron temperature $T_e$ function of $\epsilon^*$, $\sigma_0 = 0.5$, compared to the actual theory}
 			\end{figure}
-		\end{column}	
-	
+		\end{column}
+
+
 	\end{columns}
-
+	
 \end{frame}
 
 \begin{frame} 
-\frametitle{There Is No Largest Prime Number} 
-\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+	\frametitle{Improving Thuster simulation} 
+	\framesubtitle{ Wall effects} 
 
+	\textbf{Dielectric effect on potential}
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.4]{images/2D_diel_Rtheta.png}
+		\caption{Added ceramic layers}
+	\end{figure}
+	
+	$\rightarrow$ No significant effect without SEE
+	
+\end{frame}
+
+
+\begin{frame} 
+	\frametitle{Improving Thuster simulation} 
+	\framesubtitle{ $O_z$ direction} 
+
+	$O_z$ direction:
+	\begin{itemize}
+		\item Propagation direction
+		\item self-consistent ionization, density and electric field
+		\item of the the wall effect
+	\end{itemize}		
+	
+	
+	\includegraphics[scale=0.3]{images/ztheta.png} 
 \end{frame}
 
 \begin{frame} 
-\frametitle{There Is No Largest Prime Number} 
-\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+	\frametitle{Improving Thuster simulation} 
+	\framesubtitle{ Wall effects} 
+
+\end{frame}
+\begin{frame} 
+	\frametitle{Improving Thuster simulation} 
+	\framesubtitle{ Wall effects} 
 
 \end{frame}
 
