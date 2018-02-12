@@ -6,9 +6,9 @@
 
 \usepackage[T1]{fontenc}
 
-\title{\textbf{{\LARGE  Plasma for the space exploration}}\\
-On the Hall effect thruster performances}
-\date[JS-EDOM2018]{journées scientifiques de l'EDOM - 15/02/2018}
+\title{\textbf{{\LARGE  Plasma for space exploration}}\\
+On the Hall Effect Thruster investigation}
+\date[JS-EDOM2018]{Journées scientifiques de l'EDOM - 15/02/2018}
 \author[A. Tavant]{Antoine Tavant}
 
 %\usetheme{LPP}
@@ -22,30 +22,29 @@ On the Hall effect thruster performances}
 \begin{frame} 
 	\frametitle{Propulsion for satellites} 
 	\framesubtitle{Introduction} 
-
+	\vspace{-1.07cm}
 	\begin{columns}
 		\begin{column}{0.75\linewidth}
 		
 			\begin{itemize} 
-				\item Increasing use/need satellite
-				\item Propulsion is key : life time, capability, etc. 
-
-			\end{itemize}
-			
-			\begin{figure}[hbtp]
-			%TODO : use 'total satellite instead
+				\item Satellites are increasingly used/needed
+				
+				\begin{figure}[hbtp]
 				\centering
 				\includegraphics[scale=0.3]{images/sattelite-number.jpg}
-				%\caption{•}
+				\caption{Number of small satellite launched [IDSA, 2016]}
 			\end{figure}
 			
-			
-							
+				\item Propulsion is key : life time, capability, performances, etc. 
+
+			\end{itemize}
+					
 		\end{column}
 		
 		\begin{column}{0.3\linewidth}
+		
 			\begin{flushright}
-			\includegraphics[scale=0.2]{images/arian5.jpg} 
+			\includegraphics[scale=0.3]{images/arian5.jpg} 
 			\end{flushright}
 			
 		\end{column}
@@ -55,138 +54,35 @@ On the Hall effect thruster performances}
 \end{frame}
 
 \begin{frame} 
-	\frametitle{The Hall effect Thrusters} 
+	\frametitle{The Hall effect Thruster} 
 	\framesubtitle{Introduction} 
 	\begin{itemize} 
-		\item The efficiency of a thruster is linked to the echaust velocity :
+		\item Efficiency of a thruster is linked to the exhaust velocity. To send $10^4 kg$ to Mars:
 		
 		%\vspace{0.2cm}
 		\renewcommand{\arraystretch}{1.2}% Wider
 		\begin{center}
-			\begin{tabular}{c|c|c}
-				Exhaust velocity & Dry mass & mass at launch to G\\ \hline 
-				$1 km/s$ &   $2.10^3$      &  $5.10^3$  \\
-				$10 km/s$&  $2.10^3$    &  $3.10^3$ 
+			\begin{tabular}{l|c|c|c}
+				Technology & Exhaust velocity $/km.s^{-1}$ &Properllant mass $/10^3kg$\\ \hline 
+				Chemical & $1 $ &     $190$   \\
+				Electrical & $10$&   $3.5$ 
 			\end{tabular}
 		\end{center}
-		\item Hall Effect Thrusters (HET) is a very promissing technology :
+		\pause
+		\vspace{0.2cm}
+		\item Hall Effect Thrusters (HET) is a very promissing electrical technology :
 		\begin{itemize} 
 			\item High exhaust velocity ($\sim 12 km/s$)
-			\item Succesfully used since 1970s
-			\item \textit{Smart1} spacecraft used it to the moon (ESA, 2009)
+			\item \textit{Smart1} spacecraft used it \textbf{to fly to the moon} [ESA, 2009]
+			\item Selected for \textbf{human missons to Mars} ! [NASA, 2017]
 		\end{itemize}
 	\end{itemize}
-	
-	
-	%\vspace{0.2cm}
-	However: \textbf{the HET is still poorly understood}
-
-\end{frame}
-
-\begin{frame} 
-\frametitle{What don't we know ?} 
-\framesubtitle{Introduction} 
-Better inderstanding of HET is more and more important. Indeed :
-
-\begin{itemize}
-\item Performance (thrust, efficentcy, etc.) isn't predictable:
-	\begin{itemize}
-		\item the wall effect is poorly understood
-		\item the electron mobility is anormaliously high ($\sim 10 \times$)
-	\end{itemize}
-\item The life time isn't predictable
-	\begin{itemize}
-		\item Walls are eroded by ion impact sputtering
-		\item Walls resistes from 1000 h to 7000h
 		
-		\item Anormalous wall erosion are also observed
-	\end{itemize}
-\end{itemize}
-
-\textbf{Why ?} \pause Because plasma physics are \textbf{difficult}
-
-\end{frame}
-
-\begin{frame}{plasma physics are \textbf{difficult}} 
-
-	\begin{itemize}
-	\item Measurments and diagnotics are difficults
-		\begin{itemize}
-			\item low densities and high magnetic field: standard diagnotics are not precise enought
-
-			\item high temperature : probs can melt !
-			\item probs will modify the plasma propertis
-		
-		\end{itemize}
-	\end{itemize}
-	\begin{itemize}
-	\item The therory is complexe:
-		\begin{itemize}
-			\item Plasma : fluid equation mixed with Maxwell equations $\rightarrow$ Non-linear
-			\item Many degres of freedom
-		
-		\end{itemize}
-	\end{itemize}
-	$\rightarrow$ Simulation is a big help, specialy Particlar simulations.
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Plasma Beam Instability} 
-	\framesubtitle{Some Plasma Physics} 
-
-	An exemple of "simple" plasma behavious : the plasma-beam instability.
-
-\begin{columns}
-
-\begin{column}{0.55\linewidth}
-The system is simple:
-	\begin{itemize}
-		\item a static plasma background
-		\item an electron beam with high velocity $v_b >> v_{th}$
-		\item Collision are neglected (low pressure)
-		\item uniform spatial density
-	\end{itemize}
-\end{column}
-
-\begin{column}{0.35\linewidth}
-\includegraphics[scale=0.4]{images/plasma_beam_f_v.png} 
-\end{column}
-
-\end{columns}	
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Plasma Beam Instability} 
-	\framesubtitle{Some Plasma Physics} 
-
-	An exemple of "simple" plasma behavious : the plasma-beam instability.
-
-\begin{columns}
-
-\begin{column}{0.55\linewidth}
-The system is simple:
-	\begin{itemize}
-		\item a static plasma background
-		\item an electron beam with high velocity $v_b >> v_{th}$
-		\item Collision are neglected (low pressure)
-		\item uniform density
-		
-	\end{itemize}
-\end{column}
-
-\begin{column}{0.35\linewidth}
-	\movie[width=5cm,height=4cm,poster,showcontrols=true,autostart]{}{images/BeamInstability.mp4}
-\end{column}
-
-\end{columns}	
-
 \end{frame}
 
 
 \begin{frame} 
-	\frametitle{Hall Effect Thruster : presentation} 
+	\frametitle{The Hall effect Thruster} 
 	\framesubtitle{More details} 
 
 \begin{columns}
@@ -195,7 +91,7 @@ The system is simple:
 		\begin{figure}[hbtp]
 		\centering
 		\includegraphics[scale=0.25]{images/PPS1350-G.png}
-		\caption{Hall Effect Thruster (PPS-1350, Safran )}
+		\caption{HET (PPS-1350, Safran )}
 		\end{figure}
 	
 	\end{column}
@@ -210,14 +106,127 @@ The system is simple:
 	\end{column}
 
 \end{columns}	
+\pause
+\begin{center}
+	(Un)fortunately: \textbf{the HET is still poorly understood}
 
+\end{center}
 \end{frame}
 
 \begin{frame} 
-	\frametitle{Simulation presentation} 
+\frametitle{What don't we know ?} 
+\framesubtitle{Introduction} 
+Better inderstanding of HET is important:
+
+\begin{itemize}
+\item Performance (thrust, efficentcy, etc.) isn't predictable:
+	\begin{itemize}
+		\item the electron axial mobility is anormaliously high ($\sim 10 \times$)
+		\item the wall effect is poorly understood
+	\end{itemize}
+\item The life time isn't predictable
+	\begin{itemize}
+		\item Walls are eroded by ion impact sputtering
+		\item Life time up to 7000h
+	\end{itemize}
+\end{itemize}
+
+\begin{center}
+\textbf{Why ?} \pause Because plasma physics are \textbf{difficult}
+
+\end{center}
+\end{frame}
+
+\begin{frame}{Plasma physics are \textbf{difficult}} 
+
+	\begin{itemize}
+	\item Measurments and diagnotics are difficult:
+		\begin{itemize}
+			\item Intrusive probs will modify the plasma properties
+			\item Non-intrusive diagnostics are costly, complicated, and work badly under these conditions
+		
+		\end{itemize}
+	\end{itemize}
+	\begin{itemize}
+	\item The therory is complexe:
+		\begin{itemize}
+			\item Plasma : \textbf{fluid equations} mixed with \textbf{Maxwell equations} $\rightarrow$ quite complex
+		
+		\end{itemize}
+	\end{itemize}
+	$\rightarrow$ Simulation is a big help, especially kinetic simulations.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Plasma Beam Instability} 
+	\framesubtitle{Some Plasma Physics} 
+
+	An example of "simple" plasma behavious : the 1D plasma-beam instability.
+
+\begin{columns}
+
+\begin{column}{0.55\linewidth}
+The system is simple:
+	\begin{itemize}
+		\item a static plasma background
+		\item an electron beam with high velocity
+		\item collisions are neglected (low pressure)
+		\item uniform spatial density
+	\end{itemize}
+\end{column}
+
+\begin{column}{0.35\linewidth}
+
+\includegraphics<1>[scale=0.4]{images/plasma_beam_f_v.png} 
+
+\end{column}
+
+\end{columns}	
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Plasma Beam Instability} 
+	\framesubtitle{Some Plasma Physics} 
+
+	An example of "simple" plasma behavious : the 1D plasma-beam instability.
+
+\begin{columns}
+
+\begin{column}{0.55\linewidth}
+The system is simple:
+	\begin{itemize}
+		\item a static plasma background
+		\item an electron beam with high velocity
+		\item collisions are neglected (low pressure)
+		\item uniform density
+		
+	\end{itemize}
+\end{column}
+
+\begin{column}{0.35\linewidth}
+\begin{tiny}
+\vspace{0.05cm}
+
+	Phase-space representation of electrons \\ (Velocity vs position)
+	\movie[width=5cm,height=4.18cm,poster,showcontrols=false,autostart]{}{images/BeamInstability.mp4}
+\end{tiny}
+
+\end{column}
+
+\end{columns}	
+
+\end{frame}
+
+
+
+
+\begin{frame} 
+	\frametitle{Simulation of HET} 
 	\framesubtitle{ Investigating the ECDI } 
-	Investigating the Electron Cyclotron Drift Instability (ECDI)
-	
+	Research done at LPP: 
+	2D simulation of HET with LPPic, a PIC simulation tool
 	\begin{columns}
 
 	\begin{column}{0.45\linewidth}
@@ -250,7 +259,7 @@ The system is simple:
 	\begin{center}
 	The plasma potential evolution in function of time.\\
 	
-	\movie[width=6.65cm,height=5cm,poster,showcontrols=false]{}{images/plasma_potential_n04.mp4}
+	\movie[width=6.65cm,height=5cm,poster,showcontrols=false,autostart]{}{images/plasma_potential_n04.mp4}
 	
 	The instability observed is certainly the Electron cyclotron drift instability !
 	\end{center}
@@ -263,18 +272,23 @@ The system is simple:
 	
 	\begin{columns}
 
-	\begin{column}{0.45\linewidth}
+	\begin{column}{0.55\linewidth}
 	
 		\begin{figure}[hbtp]
 			\centering
-			\includegraphics[scale=0.22]{images/2D_FFT.png} 
-			\caption{Bi-dimentional Fourier Transform of $E_{\theta}$ and the theoritical dispertion relation $\omega(k_{\theta})$ of the ECDI.}
+			\includegraphics[scale=0.6]{images/2D_FFT.png}  %from LPPview/Notebooks/Z-theta_FFT.ipynb
+			\caption{2D Fourier Transform of $\overrightarrow{E} \cdot \overrightarrow{e_{\theta}}$ and the dispertion relation $\omega(k_{\theta})$ of the ECDI. [Lafleur, 2016]}
 		\end{figure}
 		
 	\end{column}
 	
-	\begin{column}{0.45\linewidth}
-	$\mu(t)$ plot form Vivien's thesis
+	\begin{column}{0.5\linewidth}
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale=0.3]{images/mob_amu.png}
+		\caption{Electron mobility from simulation compared with theories vs properlant mass [Croes, 2017]}
+		\end{figure}
+			
 	\end{column}
 
 
@@ -286,44 +300,40 @@ The system is simple:
 \begin{frame} 
 \frametitle{Improving Thuster simulation} 
 
-How to improve the simulation of the HET ? \pause
-\begin{itemize}
-	\item Plasma - wall interaction
-	\begin{itemize}
-		\item Electron induced secondery electron emition (SEE) [ Vivien Croes]
-		\item<alert@2> Dielectric layer : modify electrostatique bondary condition
-	\end{itemize}
-	\item Simulating the third direction $O_z$
-	\begin{itemize}
-		\item<alert@2> 2D simulation of the $(O_z, O_{\theta})$ plan [with Thomas Charoy]
-		\item<alert@2> Adding third "fake" direction in the 2D simulation
-	\end{itemize}
+The objective of my Ph.D.:\textbf{ How to improve the simulation of the HET ? }
+\begin{enumerate}
 
-\end{itemize}
+	\item Modelize plasma-wall interactions
+	
+	\item Simulate the third (axial) direction $O_z$
+	
+	\item Confrontation with experiment
+	
+\end{enumerate}
 \end{frame}
 
 \begin{frame} 
 	\frametitle{Improving Thuster simulation} 
-	\framesubtitle{ Wall effects} 
-		
+	\framesubtitle{ 1. Wall effects} 
+	\textbf{Electron induced Secondary electron emission (SEE)}
 	\begin{columns}
 
-		\begin{column}{0.45\linewidth}
+		\begin{column}{0.4\linewidth}
 	
 		
-	\begin{block}{Model of Secondary electron emission:}
-	Emission probability : 
+	\begin{block}{Emission probability:}
+	
 	$$\sigma = \sigma _0 + (1 - \sigma _0)\frac{\epsilon}{\epsilon^*}$$
-	with $\epsilon = \frac{1}{2} m_e v^2$, and $\sigma_0$ and $\epsilon^*$ fonctions of the ceramic  
+	with $\epsilon = \frac{1}{2} m_e v^2$, and $\sigma_0$ and $\epsilon^*$ functions of the ceramic  
 	\end{block}
 		
 		\end{column}
 	
-		\begin{column}{0.45\linewidth}
+		\begin{column}{0.6\linewidth}
 			\begin{figure}[hbtp]
 				\centering
 				\includegraphics[scale=0.3]{images/Te_epsilon.png}
-				\caption{Electron temperature $T_e$ function of $\epsilon^*$, $\sigma_0 = 0.5$, compared to the actual theory}
+				\caption{Electron temperature $T_e$ function of $\epsilon^*$, $\sigma_0 = 0.5$, compared to the current theory [Croes, 2017]}
 			\end{figure}
 		\end{column}
 
@@ -334,75 +344,127 @@ How to improve the simulation of the HET ? \pause
 
 \begin{frame} 
 	\frametitle{Improving Thuster simulation} 
-	\framesubtitle{ Wall effects} 
+	\framesubtitle{ 1. Wall effects} 
 
-	\textbf{Dielectric effect on potential}
+	\textbf{ Dielectric effect as }
 	\begin{figure}[hbtp]
 		\centering
 		\includegraphics[scale=0.4]{images/2D_diel_Rtheta.png}
 		\caption{Added ceramic layers}
 	\end{figure}
 	
-	$\rightarrow$ No significant effect without SEE
+	$\rightarrow$ No significant effect without SEE, to be investigated with SEE 
 	
 \end{frame}
 
 
 \begin{frame} 
 	\frametitle{Improving Thuster simulation} 
-	\framesubtitle{ $O_z$ direction} 
+	\framesubtitle{2. $O_z$ direction} 
 
-	$O_z$ direction:
+	Axial $(O_z)$ direction, important beacause of:
 	\begin{itemize}
-		\item Propagation direction
+		\item propagation direction
 		\item self-consistent ionization, density and electric field
-		\item of the the wall effect
 	\end{itemize}		
 	
-	
 	\includegraphics[scale=0.3]{images/ztheta.png} 
+	
+	$\rightarrow$ First results obtained in December 2017, work in progress !
 \end{frame}
+
+	
 
 \begin{frame} 
 	\frametitle{Improving Thuster simulation} 
-	\framesubtitle{ Wall effects} 
+	\framesubtitle{3. Comparaison to experiments} 
+
+	\begin{block}{How to validate simulations ?}
+	
+	Simulations are useful only if we are sure of the results.
+	\begin{itemize}
+		\item We remove bugs from simulations with benchmarks [Turner et al. 2016]
+		\item Laboratory Model of HET has been desing
+		\item Simulations will be confronted to experiments during Spring 2018
+		
+	\end{itemize}		
+	
+	\end{block}
+
 
 \end{frame}
-\begin{frame} 
-	\frametitle{Improving Thuster simulation} 
-	\framesubtitle{ Wall effects} 
+\begin{frame}{Conclusion}
+	\begin{itemize}
+	\item Understanding HET is mandatory for space exploration
+	\item Simulation is needed to understand HET $\rightarrow$ LPPic
+	\pause
+	\vspace{1cm}
+	\item LPPic validated the electron mobility theory
+	\item SEE, dieletric, propagation,... are curently beeing investegated with LPPic
+	\item Confrontation to experiments will start in few months
+	\end{itemize}
 
 \end{frame}
 
 
+\begin{frame}{That's all folks !}
+
+	\begin{columns}
+
+		\begin{column}{0.55\linewidth}
+			\begin{center}
+				Thank you for your attention.\\
+				\vspace{1cm}
+				Now is question time !
+			\end{center}
+		\end{column}
+	
+		\begin{column}{0.45\linewidth}
+			\begin{figure}[hbtp]
+				\centering
+				\includegraphics[scale=0.3]{images/HET_firing.jpg} 
+				\caption{HET during use, Busek}
+			\end{figure}
+		\end{column}
+
+
+	\end{columns}
+	
+
+\end{frame}	
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~
+%Biblio
+%~~~~~~~~~~~~~~~~~~~~~~~~~
+% IDSA : https://idsa.in/issuebrief/rocket-launchers-for-small-satellites_alele.tshrivastav_040216
+% NASA : https://aerospaceamerica.aiaa.org/departments/coming-soon-electric-propulsion-plan-for-mars/
+
+
 \begin{frame} 
-\frametitle{There Is No Largest Prime Number} 
-\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+\frametitle{Improving Thuster simulation} 
 
-\end{frame}
+The objective of my Ph.D.:\textbf{ How to improve the simulation of the HET ? }
+\begin{enumerate}
 
-
-
-\begin{frame} 
-\frametitle{There Is No Largest Prime Number} 
-\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
-\begin{theorem}
-There is no largest prime number. \end{theorem} 
-\begin{enumerate} 
-\item<1-| alert@1> Suppose $p$ were the largest prime number. 
-\item<2-> Let $q$ be the product of the first $p$ numbers. 
-\item<3-> Then $q+1$ is not divisible by any of them. 
-\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
-number not in the first $p$ numbers.
+	\item Modelize plasma-wall interactions
+	\begin{itemize}
+		\item<2-> Secondary electron emission (SEE) [by Vivien Croes]
+		\item<2- | alert@3> Dielectric layer (electrostatique bondary)
+		\item<2- | alert@3> Erosion by ion impacts [with Théo Courtois]
+	\end{itemize}
+	\item Simulate the third (axial) direction $O_z$
+	\begin{itemize}
+		\item<2- | alert@3> Simulation of the $(O_z, O_{\theta})$ plan [with Thomas Charoy]
+		\item<2- | alert@3> Adding third "fake" direction in the 2D simulation
+	\end{itemize}
+	\item Confrontation with experiment
+	\begin{itemize}
+		\item<2- | alert@3> Design and tests on a prototype  [with Théo Courtois]
+		\item<2- > Developing new diagnostics  [by Théo Courtois]
+	\end{itemize}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{A longer title}
-\begin{itemize}
-\item one
-\item two
-\end{itemize}
-\end{frame}
 
 \end{document}
 
